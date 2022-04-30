@@ -1,0 +1,194 @@
+* Dedicated session
+This a package with 1 purpose: automatically run the user through dedicated sessions.
+** the theory: dedicated session
+a dedicated session consist of 3 stages:
++ dumping
++ doing
++ releasing
+*** dumping
+=dumping= is the process to =dump all previous focuses/concerns out of the brain=, in order to be able to concentrate on the upcoming [[doing]] stage. This stage ensure that every [[doing]] process through the day, or even through a larger time period like month or season, have a similar, and generally [[good state]]
+*** doing
+=doing= is stage where the =work are done=.
+=doing= is seperated into smaller pieces called [[bar]] and [[rest]], to maintain the level of focus through a single doing stage.
+*** releasing
+=releasing= is stage to =round up the work and free your memory= so you don't have to think about the session after it's done and still feel happy about it.
+
+*** good state
+a good state is typically decribed as:
++ calm: without anxiety, being able to take the thing at its own speed rather than a "required" speed defined by some social benchmark
++ focused: without distraction, being able to set topic and do only relevent stuff in a single session.
++ clear mind: with track, being able to track what is done, the process, input, and output information of work done, where to find reference and content of checked reference, matching principle of current situation, meaning of concept, whole/current/next step in the process/machine, .etc.
++ healthy: physically feeling well, with body in stance unlikely to cause disease/sore, motivated body emotion(you can jump off to exercie), well hydrated, .etc
+
+in short, a good state is the state where you're able to =do things as what they are, with yourself as who you are=, without "bad" influence of social/physical/mental bias due to either your social environment or personal environment(your habits and what you have done earlier today).
+** setup
+
+*** init.el
+you can just copy and paste all codes in the repository into your init.el file.
+
+or, you can clone this repository into your site-lisp directory, and add following into your init.el file
+#+caption:init.el
+#+begin_src emacs-lisp
+  (require 'dedicated-session)
+  (global-set-key (kbd "C-c d s") 'dedicated-session)
+  (global-set-key (kbd "C-c d t") 'dedicated-session-doing-topic)
+  (setq 'dedicated-session-prompt-source "path/to/your/prompt/source.org")
+  (setq 'dedicated-session-journal "path/to/your/journal.org")
+#+end_src
+*** files
+currently, all files are kept using org format for readability and editing utility.
+**** prompt-source
+where the prompt comes from. The file should included at least:
+#+begin_src ditaa
+  +--rest methods
+  |   +---drink coffee :dumping:
+  |   +---another rest method :dumping:doing:
+  |   +---picturing put things in memory on the floor :dumping:releasing:
+  |
+  +--prompts       
+      +---dumping
+      +---doing
+      | 	 +---topic
+      |  	 +---bar-start
+      | 	 +---bar-end
+      | 	 +---rest-start
+      | 	 +---rest-end
+      | 	 +---doing-start
+      |	 +---doing-end
+      |
+      +---releasing
+               
+            
+#+end_src
+the tags in the rest methods are one of =:dumping:doing:releasing:=, signifying in which stage of the session the rest method is available.
+
+prompts, if not set through the =prompts= subtree of the file, would use default values in the package.
+**** journal
+#+begin_src ditaa
+  ---Year	
+      +---Jan   
+      |	      															
+      +---Feb   
+           +--11
+           |
+           +--12
+               +---session 1
+               |    +---Dumping
+               |    |    +---time:start and stop
+               |    |    +---method:selected from source
+               |    |    +---extra log: from the log function
+               |    |
+               |    +---Doing
+               | 	  |    +---topic
+               |    |    +---bar 1
+               |    |    +---rest 1
+               |    |    +---bar 2
+               |    |    |    +--time: start and stop
+               |    |    |    +--extra log:from the log function
+               | 	  |    |    +--bar summary:from the prompt
+               | 	  |    |
+               | 	  |    +---rest 2
+               |	  |	    +--time: start and stop
+               |	  |	    +--rest method:from list
+               |	  |	    +--extra log:from the log function
+               |	  |
+               |	  +---Releasing
+               |	  .    +--time: start and end
+               |	  .    +--session summary: from prompt, what is done
+               |	  .    |		   in this session.
+               |	  .    +--rest method: from list
+               |	  .    +--extra log: from the log function
+               |	  .
+               |	  ....[maybe]Statistics
+               |		      +--length of session
+               |		      +--length of bar
+               |		      +--number of bars
+               |		      +--rest time
+               |		      +--working time
+               |		      +--ratio of working/whole
+               |		      +--...
+               |
+               +---session 2
+                    ----...
+#+end_src
+where the log of your choices and your notes goes to.
+in the future, I may modify the mech so you can write your own journal-function to log your journal into whereever you want in whatever format, like your org-roam daily page,.etc.
+
+or, if you have hacked a function like that, you can start the...pull request something. Once I figure out how that thing work, I'll check and may incorporate that into the package.
+** usage
+When you want to start a [[*the theory: dedicated session][dedicated session]], do ~M-x dedicated-session~ or ~C-c d s~ if you bind the function to that keybinding, and you'll enter the dumping buffer, where prompts would show.
+
+you can follow the prompts there, and once you enter the doing stage, you can just do things as how you do them. in this stage
++ ~dedicated-session-doing-topic~ would show the topic your doing in the minibuffer.
++ ~dedicated-session-doing-bar-rest-toggle~ would be automatically called after you entered the topic.
+  + when you call it during a [[rest]], it will end the rest and start the next [[bar]].
+  + when you call it during a [[bar]], it will end the bar and start the next [[rest]].
+  + automatically called after X minuites if the variable ~dedicated-session-doing-bar-length~ is non-nil and X. if the variable is ~nil~, then the first recorded bar length would be assign to it.
++ ~dedicated-session-doing--rest-prompt~ would show you the rest prompt, but you may want to let it be called by the ~bar-rest-toggle~ function.
++ ~dedicated-session-doing-leave-back-toggle~ if you have a accidental leave, it will end the current bar/rest and not starting the next, but freeze to wait you back and call it another time, where the same type bar/rest would be created.
++ ~dedicated-session-doing-exit~ would end the doing session
+
+after ~dedicated-session-doing-exit~ is called, you would be directed to the releasing buffer, where you'll be prompt to write some summary of the session, and to do some rest. you can follow the prompt there, and eventually end the dedicated session.
+
+Through out the session, you can call ~dedicated-session-log~ to log in the corresponding part, 
+*** TODO include screenshots here
+** functions
+*** ~dedicated-session~
+entry point of the facility. it will:
+1. start a session(set ~dedicated-session-in~ to ~t~)
+2. call ~dedicated-session-dumping~
+   after dumping finished, enter next phase like magit commit
+3. call ~dedicated-session-doing~
+*** ~dedicated-session-dumping~
+(if use elscreen, could create a new screen and do that)
+1. prompt for input of value of ~dedicated-session-topic~
+2. create entry with time and "dedicated session: " dedicated-session-topic and the entry for dumping
+3. record the start time with ~dedicated-session-record-time~
+4. display prompts from source in a popup buffer
+5. set ~dedicated-session-state~ to ~'dumping~
+6. wait until user input signifying end of dumping(C-c C-c?)
+7. call  ~dedicated-session-record-time~
+8. return to ~dedicated-session~
+*** ~dedicated-session-doing~
+1. set ~dedicated-session-state~ to ~'doing~
+2. create entry of doing
+3. call ~dedicated-session-bar-rest-toggle~
+**** ~dedicated-session-doing-bar-rest-toggle &optional done?~
+1. will toggle the ~dedicated-session-doing-state~ to bar/rest,
+2. find the last bar/rest. if there's none, create one
+3. call ~dedicated-session-record-time~,
+4. if ~done?~ is ture, meaning it's called by ~dedicated-session-releasing~, that the doing stage is done, so no new insert. and return.
+5. otherwise,
+   1. create new rest/bar entry,
+   2. call ~dedicated-session-record-time~,
+   3. if it's a bar, message "bar no.X starting"
+   4. if it's a rest, call ~dedicated-session-doing--rest-prompt~
+   5. return
+**** ~dedicated-session-doing--rest-prompt~
+1. start a new org buffer
+2. insert content from ~dedicated-session-rest-collect~
+3. popup a window, and give it the buffer
+4. wait for user input to call ~dedicated-session-doing-bar-rest-toggle~ and return
+****  ~dedicated-session-rest-collect~
+1. go to the source file
+2. filter rest methods with the ~dedicated-session-state~ as tags
+3. return the filtered rest methods 
+*** ~dedicated-session-releasing~
+manualy called.
+1. call ~dedicated-session-bar-rest-toggle t~, to end the last bar/rest
+2. call ~dedicated-session-releasing-free~
+**** ~dedicated-session-releasing-free~
+1. open a capture buffer just like magit commit
+2. prompt for summary log
+3. after recieving C-c C-c, goto the journal file buffer, create the releasing heading and save the log in journal
+4. prompt for rest with methods returned by ~dedicated-session-rest-collect 'releasing~
+5. after recieving C-c C-c, meaning that the rest ended, set ~dedicated-session-state~ to nil
+6. message dedicated session of ~dedicated-session-topic~ ended
+7. set ~dedicated-session-doing-topic~ nil
+*** ~dedicated-session-log~
+this function log notes in the corresponding entry in the journal file
+1. display a capture buffer
+2. after recieving C-c C-c, goto journal file buffer, create an entry under the ~logs~ (if it's not present, create one) with heading at (current time - start - time), and insert the note under that entry.
+** roadmap
++ [ ] enable customize journal function
+
