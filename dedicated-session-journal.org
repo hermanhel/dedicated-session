@@ -1,0 +1,18 @@
+* 2022
+** May
+*** 03
+**** 15:08 Session: herman's incredible bravery
+***** dumping
+:PROPERTIES:
+:start-time: <2022-05-03 15:08>
+:END:
+**** 15:21 Session: herman's incredible bravery
+***** dumping
+:PROPERTIES:
+:start-time: <2022-05-03 15:21>
+:END:
+**** 15:22 Session: herman's incredible bravery
+***** dumping
+:PROPERTIES:
+:start-time: <2022-05-03 15:22>
+:END:
