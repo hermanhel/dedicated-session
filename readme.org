@@ -31,7 +31,11 @@ or, you can clone this repository into your site-lisp directory, and add followi
 #+begin_src emacs-lisp
   (require 'dedicated-session)
   (global-set-key (kbd "C-c d s") 'dedicated-session)
-  (global-set-key (kbd "C-c d t") 'dedicated-session-doing-topic)
+  (global-set-key (kbd "C-c d t") 'dedicated-session-see-topic)
+  (global-set-key (kbd "C-c d g") 'dedicated-session-see-stage-in)
+  (global-set-key (kbd "C-c d C-c") 'dedicated-session-bar-rest-toggle)
+  (global-set-key (kbd "C-c d q") 'dedicated-session-releasing)
+  (global-set-key (kbd "C-c d l") 'dedicated-session-log)
   (setq 'dedicated-session-prompt-source "path/to/your/prompt/source.org")
   (setq 'dedicated-session-journal "path/to/your/journal.org")
 #+end_src
@@ -126,6 +130,7 @@ in short:
    you'll enter summary log buffer. finish summary. ~C-c C-c~. you'll enter releasing buffer. release. ~C-c C-c~ to quit.
 5. all stages are logged into a .org file you specified in ~dedicated-session-journal~
 6. you can log anytime. the log goes into corresponding entry when you logged.
+   log is numbered in session. the number reset after releasing.
 
 
 When you want to start a [[*the theory: dedicated session][dedicated session]], do ~M-x dedicated-session~ or ~C-c d s~ if you bind the function to that keybinding, and you'll enter the dumping buffer, where prompts would show.
@@ -183,6 +188,8 @@ CLOSED: [2022-05-04 Wed 18:23]
 #+attr_html: :width 600px 
 #+ATTR_ORG: :width 600
 [[./resource/readme/journal.png]]
+*** Bugs
++ there's little undo/illegal action prevent machenism, so unexpected thing would happen if you didn't follow the instructions. Like, if you log and forget about it, the log will be write in the journal with your next finalized log(the next one you pressed ~C-c C-c~ after finishing)
 ** functions
 information here I wrote before start coding. so it might be inaccurate. I'll fix that later
 *** ~dedicated-session~

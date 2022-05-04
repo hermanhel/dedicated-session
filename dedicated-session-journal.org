@@ -180,5 +180,57 @@ saxphone good
 :log-time: [2022-05-04 18:11]
 :END:
 [[file:readme.org::*screenshots][screenshots]]
+**** 18:46 Session: herman's wit
+***** dumping
+:PROPERTIES:
+:start-time: <2022-05-04 18:46>
+:end-time: <2022-05-04 18:47>
+:duration: 00:01
+:END:
+***** doing
+****** bar 1
+:PROPERTIES:
+:start-time: <2022-05-04 18:47>
+:END:
+**** 18:56 Session: herman's wit
+***** dumping
+:PROPERTIES:
+:start-time: <2022-05-04 18:56>
+:end-time: <2022-05-04 18:56>
+:duration: 00:00
+:END:
+***** doing
+****** bar 1
+:PROPERTIES:
+:start-time: <2022-05-04 18:56>
+:end-time: <2022-05-04 18:57>
+:duration: 00:01
+:END:
+****** rest 2
+:PROPERTIES:
+:start-time: <2022-05-04 18:57>
+:end-time: <2022-05-04 18:57>
+:duration: 00:00
+:END:
+****** bar 2
+:PROPERTIES:
+:start-time: <2022-05-04 18:57>
+:end-time: <2022-05-04 18:58>
+:duration: 00:01
+:END:
+***** releasing
+:PROPERTIES:
+:start-time: <2022-05-04 18:58>
+:END:
+******* log #1
+:PROPERTIES:
+:log-time: [2022-05-04 18:49]
+:END:
+[[file:readme.org::*init.el][init.el]]
+****** summary
+:PROPERTIES:
+:log-time: [2022-05-04 18:58]
+:END:
+[[file:readme.org::*init.el][init.el]]
 
 

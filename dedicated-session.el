@@ -466,16 +466,29 @@ if call with summary? t, means it's called by dedicated-session-releasing-prompt
   )
 
 ;;some interactive functions
-(defun dedicated-session-topic ()
+(defun dedicated-session-see-topic ()
   "show current topic in minibuffer"
   (interactive)
   (if dedicated-session-in
       (message dedicated-session-topic)
     (message "you're not in a dedicated session")))
-(defun dedicated-session-stage-in ()
+(defun dedicated-session-see-stage-in ()
   "show what stage curent in"
   (interactive)
-  (message (dedicated-session-in-string))
+  (with-temp-buffer
+    (let ((elasped-time nil))
+      (insert-file-contents dedicated-session-journal)
+      (org-mode)
+      (dedicated-session-find-current-entry-in-journal)
+      (setq elasped-time (format-seconds
+			   "%02h:%02m"
+			   (time-subtract 
+			    (org-current-time)
+			    (org-time-string-to-time (org-element-property :START-TIME (org-element-at-point)))
+			    )))
+      (message "currently in %s for %s" (dedicated-session-in-string) elasped-time)
+      )
+    )
   )
 
 (provide 'dedicated-session)
