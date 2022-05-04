@@ -22,7 +22,8 @@ a good state is typically decribed as:
 
 in short, a good state is the state where you're able to =do things as what they are, with yourself as who you are=, without "bad" influence of social/physical/mental bias due to either your social environment or personal environment(your habits and what you have done earlier today).
 ** setup
-
+*** dependencies
+~org-ml~ and ~org-element~ are used. They are both in melpa, so you can ~package-install~ them.
 *** init.el
 you can just copy and paste all codes in the repository into your init.el file.
 
