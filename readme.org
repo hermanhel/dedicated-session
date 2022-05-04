@@ -191,4 +191,6 @@ this function log notes in the corresponding entry in the journal file
 2. after recieving C-c C-c, goto journal file buffer, create an entry under the ~logs~ (if it's not present, create one) with heading at (current time - start - time), and insert the note under that entry.
 ** roadmap
 + [ ] enable customize journal function
++ [ ] add timer feature in doing/bars
++ [ ] link behaviour in prompt buffers?
 

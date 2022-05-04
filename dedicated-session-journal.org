@@ -1,18 +1,146 @@
 * 2022
 ** May
-*** 03
-**** 15:08 Session: herman's incredible bravery
+*** 04
+**** 17:33 Session:  new age
 ***** dumping
 :PROPERTIES:
-:start-time: <2022-05-03 15:08>
+:start-time: <2022-05-04 17:33>
+:end-time: <2022-05-04 17:35>
+:duration: 00:02
 :END:
-**** 15:21 Session: herman's incredible bravery
+****** log #1
+:PROPERTIES:
+:log-time: [2022-05-04 17:34]
+:END:
+[[file:dedicated-session.el::)]]
+I'm so handsome
+***** doing
+****** bar 1
+:PROPERTIES:
+:start-time: <2022-05-04 17:35>
+:end-time: <2022-05-04 17:35>
+:duration: 00:00
+:END:
+******* log #2
+:PROPERTIES:
+:log-time: [2022-05-04 17:35]
+:END:
+[[file:dedicated-session.el::)]]
+and so brave
+****** rest 1
+:PROPERTIES:
+:start-time: <2022-05-04 17:35>
+:end-time: <2022-05-04 17:41>
+:duration: 00:06
+:END:
+******* log #3
+:PROPERTIES:
+:log-time: [2022-05-04 17:40]
+:END:
+no link available in the temporary buffers.
+****** bar 2
+:PROPERTIES:
+:start-time: <2022-05-04 17:41>
+:end-time: <2022-05-04 17:42>
+:duration: 00:01
+:END:
+******* log #4
+:PROPERTIES:
+:log-time: [2022-05-04 17:41]
+:END:
+this another log!
+****** rest 2
+:PROPERTIES:
+:start-time: <2022-05-04 17:42>
+:end-time: <2022-05-04 17:42>
+:duration: 00:00
+:END:
+****** bar 3
+:PROPERTIES:
+:start-time: <2022-05-04 17:42>
+:end-time: <2022-05-04 17:47>
+:duration: 00:05
+:END:
+******* log #5
+:PROPERTIES:
+:log-time: [2022-05-04 17:42]
+:END:
+and another
+****** rest 3
+:PROPERTIES:
+:start-time: <2022-05-04 17:47>
+:end-time: <2022-05-04 17:47>
+:duration: 00:00
+:END:
+******* log #6
+:PROPERTIES:
+:log-time: [2022-05-04 17:47]
+:END:
+so no link here
+****** bar 4
+:PROPERTIES:
+:start-time: <2022-05-04 17:47>
+:end-time: <2022-05-04 17:47>
+:duration: 00:00
+:END:
+******* log #7
+:PROPERTIES:
+:log-time: [2022-05-04 17:47]
+:END:
+[[file:dedicated-session.el::)]]
+but with link here, and no errors and interupts
+***** releasing
+:PROPERTIES:
+:end-time: <2022-05-04 17:48>
+:END:
+****** summary
+:PROPERTIES:
+:log-time: [2022-05-04 17:47]
+:END:
+[[file:dedicated-session.el::)]]
+and that is a valid package
+****** log #9
+:PROPERTIES:
+:log-time: [2022-05-04 17:48]
+:END:
+and now I'm doing it!
+just
+**** 17:55 Session: saxphone
 ***** dumping
 :PROPERTIES:
-:start-time: <2022-05-03 15:21>
+:start-time: <2022-05-04 17:55>
+:end-time: <2022-05-04 17:55>
+:duration: 00:00
 :END:
-**** 15:22 Session: herman's incredible bravery
-***** dumping
+***** doing
+****** bar 4
 :PROPERTIES:
-:start-time: <2022-05-03 15:22>
+:start-time: <2022-05-04 17:55>
+:end-time: <2022-05-04 17:55>
+:duration: 00:00
 :END:
+****** rest 5
+:PROPERTIES:
+:start-time: <2022-05-04 17:55>
+:end-time: <2022-05-04 17:55>
+:duration: 00:00
+:END:
+****** bar 5
+:PROPERTIES:
+:start-time: <2022-05-04 17:55>
+:end-time: <2022-05-04 17:56>
+:duration: 00:01
+:END:
+***** releasing
+:PROPERTIES:
+:start-time: <2022-05-04 17:56>
+:end-time: <2022-05-04 17:56>
+:duration: 00:00
+:END:
+****** summary
+:PROPERTIES:
+:log-time: [2022-05-04 17:56]
+:END:
+[[file:dedicated-session.el::)]]
+saxphone good
+
