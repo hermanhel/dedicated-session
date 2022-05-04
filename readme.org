@@ -116,6 +116,18 @@ in the future, I may modify the mech so you can write your own journal-function 
 
 or, if you have hacked a function like that, you can start the...pull request something. Once I figure out how that thing work, I'll check and may incorporate that into the package.
 ** usage
+in short:
+1. start dedicated session by calling ~dedicated-session~.
+   you'll enter dumping buffer
+2. press ~C-c C-c~ to proceed from a dumping buffer. Your first bar would start
+3. call ~dedicated-session-doing-bar-rest-toggle~ to toggle between bar and rest
+   1. if you're toggling into rest, you'll enter rest buffer. ~C-c C-c~ to proceed to next bar. Or, you can kill buffer mannualy and toggle manualy. I may add an alias for toggle, as it's often used only for entering rest.
+4. call ~dedicated-session-releasing~ if you want to quit.
+   you'll enter summary log buffer. finish summary. ~C-c C-c~. you'll enter releasing buffer. release. ~C-c C-c~ to quit.
+5. all stages are logged into a .org file you specified in ~dedicated-session-journal~
+6. you can log anytime. the log goes into corresponding entry when you logged.
+
+
 When you want to start a [[*the theory: dedicated session][dedicated session]], do ~M-x dedicated-session~ or ~C-c d s~ if you bind the function to that keybinding, and you'll enter the dumping buffer, where prompts would show.
 
 you can follow the prompts there, and once you enter the doing stage, you can just do things as how you do them. in this stage
@@ -123,16 +135,56 @@ you can follow the prompts there, and once you enter the doing stage, you can ju
 + ~dedicated-session-doing-bar-rest-toggle~ would be automatically called after you entered the topic.
   + when you call it during a [[rest]], it will end the rest and start the next [[bar]].
   + when you call it during a [[bar]], it will end the bar and start the next [[rest]].
-  + automatically called after X minuites if the variable ~dedicated-session-doing-bar-length~ is non-nil and X. if the variable is ~nil~, then the first recorded bar length would be assign to it.
-+ ~dedicated-session-doing--rest-prompt~ would show you the rest prompt, but you may want to let it be called by the ~bar-rest-toggle~ function.
-+ ~dedicated-session-doing-leave-back-toggle~ if you have a accidental leave, it will end the current bar/rest and not starting the next, but freeze to wait you back and call it another time, where the same type bar/rest would be created.
-+ ~dedicated-session-doing-exit~ would end the doing session
+  + [not implemented] automatically called after X minuites if the variable ~dedicated-session-doing-bar-length~ is non-nil and X. if the variable is ~nil~, then the first recorded bar length would be assign to it.
++ [you don't want to call it by yourself] ~dedicated-session-doing-rest-prompt~ would show you the rest prompt, but you may want to let it be called by the ~bar-rest-toggle~ function.
++ [not implemented] ~dedicated-session-doing-leave-back-toggle~ if you have a accidental leave, it will end the current bar/rest and not starting the next, but freeze to wait you back and call it another time, where the same type bar/rest would be created.
++ ~dedicated-session-releasing~ would end the doing session
 
-after ~dedicated-session-doing-exit~ is called, you would be directed to the releasing buffer, where you'll be prompt to write some summary of the session, and to do some rest. you can follow the prompt there, and eventually end the dedicated session.
+after ~dedicated-session-releasing~ is called, you would be directed to a summary log and then the releasing buffer, where you'll be prompt to do some rest. you can follow the prompt there, and eventually end the dedicated session by ~C-c C-c.
 
 Through out the session, you can call ~dedicated-session-log~ to log in the corresponding part, 
-*** TODO include screenshots here
+*** DONE include screenshots here
+CLOSED: [2022-05-04 Wed 18:23]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2022-05-04 Wed 18:23]
+:END:
+**** screenshots
+#+caption:topic
+#+attr_html: :width 600px 
+#+ATTR_ORG: :width 600
+[[./resource/readme/topic.png]]
+
+#+caption:dumping
+#+attr_html: :width 600px 
+#+ATTR_ORG: :width 600
+[[./resource/readme/dumping.png]]
+
+#+caption:rest
+#+attr_html: :width 600px 
+#+ATTR_ORG: :width 600
+[[./resource/readme/rest.png]]
+
+#+caption:summary
+#+attr_html: :width 600px 
+#+ATTR_ORG: :width 600
+[[./resource/readme/summary.png]]
+
+#+caption:releasing
+#+attr_html: :width 600px 
+#+ATTR_ORG: :width 600
+[[./resource/readme/releasing.png]]
+
+#+caption:dedicated-session-resource
+#+attr_html: :width 600px 
+#+ATTR_ORG: :width 600
+[[./resource/readme/resource.png]]
+
+#+caption:dedicated-session-journal
+#+attr_html: :width 600px 
+#+ATTR_ORG: :width 600
+[[./resource/readme/journal.png]]
 ** functions
+information here I wrote before start coding. so it might be inaccurate. I'll fix that later
 *** ~dedicated-session~
 entry point of the facility. it will:
 1. start a session(set ~dedicated-session-in~ to ~t~)
@@ -193,4 +245,3 @@ this function log notes in the corresponding entry in the journal file
 + [ ] enable customize journal function
 + [ ] add timer feature in doing/bars
 + [ ] link behaviour in prompt buffers?
-

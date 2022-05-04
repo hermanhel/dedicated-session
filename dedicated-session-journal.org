@@ -143,4 +143,42 @@ just
 :END:
 [[file:dedicated-session.el::)]]
 saxphone good
+**** 18:10 Session: jazz piano
+***** dumping
+:PROPERTIES:
+:start-time: <2022-05-04 18:10>
+:end-time: <2022-05-04 18:10>
+:duration: 00:00
+:END:
+***** doing
+****** bar 1
+:PROPERTIES:
+:start-time: <2022-05-04 18:10>
+:end-time: <2022-05-04 18:10>
+:duration: 00:00
+:END:
+****** rest 1
+:PROPERTIES:
+:start-time: <2022-05-04 18:10>
+:end-time: <2022-05-04 18:11>
+:duration: 00:01
+:END:
+****** bar 2
+:PROPERTIES:
+:start-time: <2022-05-04 18:11>
+:end-time: <2022-05-04 18:11>
+:duration: 00:00
+:END:
+***** releasing
+:PROPERTIES:
+:start-time: <2022-05-04 18:11>
+:end-time: <2022-05-04 18:11>
+:duration: 00:00
+:END:
+****** summary
+:PROPERTIES:
+:log-time: [2022-05-04 18:11]
+:END:
+[[file:readme.org::*screenshots][screenshots]]
+
 

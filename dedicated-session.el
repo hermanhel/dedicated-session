@@ -465,7 +465,18 @@ if call with summary? t, means it's called by dedicated-session-releasing-prompt
   (dedicated-session-rest-prompt dedicated-session-default-releasing-prompt-fmt)
   )
 
-
+;;some interactive functions
+(defun dedicated-session-topic ()
+  "show current topic in minibuffer"
+  (interactive)
+  (if dedicated-session-in
+      (message dedicated-session-topic)
+    (message "you're not in a dedicated session")))
+(defun dedicated-session-stage-in ()
+  "show what stage curent in"
+  (interactive)
+  (message (dedicated-session-in-string))
+  )
 
 (provide 'dedicated-session)
 ;;; dedicated-session.el ends here
