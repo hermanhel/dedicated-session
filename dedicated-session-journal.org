@@ -284,4 +284,222 @@ I wrote and formulated all behaviours I'm going to write
 ****** bar 21
 :PROPERTIES:
 :start-time: <2022-05-05 17:21>
+:end-time: <2022-05-05 17:32>
+:duration: 00:11
 :END:
+***** releasing
+:PROPERTIES:
+:start-time: <2022-05-05 17:32>
+:end-time: <2022-05-05 17:32>
+:duration: 00:00
+:END:
+****** summary
+:PROPERTIES:
+:log-time: [2022-05-05 17:32]
+:END:
+[[file:dedicated-session.el::defun dedicated-session-time-statistics (]]
+我寫完timer的功能
+**** 17:32 Session: test
+***** dumping
+:PROPERTIES:
+:start-time: <2022-05-05 17:32>
+:end-time: <2022-05-05 17:33>
+:duration: 00:01
+:END:
+***** doing
+****** bar 1
+:PROPERTIES:
+:start-time: <2022-05-05 17:33>
+:end-time: <2022-05-05 17:34>
+:duration: 00:01
+:END:
+***** releasing
+:PROPERTIES:
+:start-time: <2022-05-05 17:34>
+:end-time: <2022-05-05 17:35>
+:duration: 00:01
+:END:
+****** summary
+:PROPERTIES:
+:log-time: [2022-05-05 17:34]
+:END:
+[[file:dedicated-session.el::setq dedicated-session-effort 0)]]
+found that I forgot to reset the efforts
+**** 17:35 Session: test2
+***** dumping
+:PROPERTIES:
+:start-time: <2022-05-05 17:35>
+:end-time: <2022-05-05 17:35>
+:duration: 00:00
+:END:
+***** doing
+****** bar 1
+:PROPERTIES:
+:start-time: <2022-05-05 17:35>
+:end-time: <2022-05-05 17:35>
+:duration: 00:00
+:END:
+****** rest 1
+:PROPERTIES:
+:start-time: <2022-05-05 17:35>
+:end-time: <2022-05-05 17:35>
+:duration: 00:00
+:END:
+****** bar 2
+:PROPERTIES:
+:start-time: <2022-05-05 17:35>
+:end-time: <2022-05-05 17:39>
+:duration: 00:04
+:END:
+***** releasing
+:PROPERTIES:
+:start-time: <2022-05-05 17:39>
+:end-time: <2022-05-05 17:39>
+:duration: 00:00
+:END:
+****** summary
+:PROPERTIES:
+:log-time: [2022-05-05 17:39]
+:END:
+[[file:dedicated-session.el::;;interactively set effort]]
+**** 17:39 Session: test 3
+***** dumping
+:PROPERTIES:
+:start-time: <2022-05-05 17:39>
+:end-time: <2022-05-05 17:40>
+:duration: 00:01
+:END:
+***** doing
+****** bar 1
+:PROPERTIES:
+:start-time: <2022-05-05 17:40>
+:end-time: <2022-05-05 17:40>
+:duration: 00:00
+:END:
+****** rest 1
+:PROPERTIES:
+:start-time: <2022-05-05 17:40>
+:end-time: <2022-05-05 17:40>
+:duration: 00:00
+:END:
+****** bar 2
+:PROPERTIES:
+:start-time: <2022-05-05 17:40>
+:end-time: <2022-05-05 17:40>
+:duration: 00:00
+:END:
+****** rest 2
+:PROPERTIES:
+:start-time: <2022-05-05 17:40>
+:end-time: <2022-05-05 17:40>
+:duration: 00:00
+:END:
+****** bar 3
+:PROPERTIES:
+:start-time: <2022-05-05 17:40>
+:end-time: <2022-05-05 17:40>
+:duration: 00:00
+:END:
+****** rest 3
+:PROPERTIES:
+:start-time: <2022-05-05 17:40>
+:end-time: <2022-05-05 17:40>
+:duration: 00:00
+:END:
+****** bar 4
+:PROPERTIES:
+:start-time: <2022-05-05 17:40>
+:end-time: <2022-05-05 17:40>
+:duration: 00:00
+:END:
+****** rest 4
+:PROPERTIES:
+:start-time: <2022-05-05 17:40>
+:end-time: <2022-05-05 17:46>
+:duration: 00:06
+:END:
+****** bar 5
+:PROPERTIES:
+:start-time: <2022-05-05 17:46>
+:end-time: <2022-05-05 17:46>
+:duration: 00:00
+:END:
+****** rest 5
+:PROPERTIES:
+:start-time: <2022-05-05 17:46>
+:end-time: <2022-05-05 17:47>
+:duration: 00:01
+:END:
+****** bar 6
+:PROPERTIES:
+:start-time: <2022-05-05 17:47>
+:end-time: <2022-05-05 17:47>
+:duration: 00:00
+:END:
+****** rest 6
+:PROPERTIES:
+:start-time: <2022-05-05 17:47>
+:end-time: <2022-05-05 17:47>
+:duration: 00:00
+:END:
+****** bar 7
+:PROPERTIES:
+:start-time: <2022-05-05 17:47>
+:end-time: <2022-05-05 17:52>
+:duration: 00:05
+:END:
+***** releasing
+:PROPERTIES:
+:start-time: <2022-05-05 17:52>
+:end-time: <2022-05-05 17:52>
+:duration: 00:00
+:END:
+****** summary
+:PROPERTIES:
+:log-time: [2022-05-05 17:52]
+:END:
+[[file:dedicated-session.el::message "dedicated session started!!!"]]
+**** 17:52 Session: test 4
+***** dumping
+:PROPERTIES:
+:start-time: <2022-05-05 17:52>
+:end-time: <2022-05-05 17:52>
+:duration: 00:00
+:END:
+***** doing
+****** bar 1
+:PROPERTIES:
+:start-time: <2022-05-05 17:52>
+:end-time: <2022-05-05 17:52>
+:duration: 00:00
+:END:
+****** rest 1
+:PROPERTIES:
+:start-time: <2022-05-05 17:52>
+:end-time: <2022-05-05 17:54>
+:duration: 00:02
+:END:
+***** releasing
+:PROPERTIES:
+:start-time: <2022-05-05 17:54>
+:end-time: <2022-05-05 17:54>
+:duration: 00:00
+:END:
+****** summary
+:PROPERTIES:
+:log-time: [2022-05-05 17:54]
+:END:
+[[file:dedicated-session.el::message "releasing " dedicated-session-topic))]]
+**** 17:54 Session: test 5
+***** dumping
+:PROPERTIES:
+:start-time: <2022-05-05 17:54>
+:end-time: <2022-05-05 17:54>
+:duration: 00:00
+:END:
+***** doing
+****** bar 1
+:PROPERTIES:
+:start-time: <2022-05-05 17:54>
+:END:
+

@@ -323,8 +323,8 @@ usage:
 the final time (10m) is currently hard coded."
   (cond
    (final? (run-with-timer 600 0 'dedicated-session-releasing))
-   (t (let ((extension (read-string "10m remaining. Extend session?[input extend time(m)]: ")))
-	(if extension
+   (t (let ((extension (string-to-number (read-string "10m remaining. Extend session?[input extend time(m)]: "))))
+	(if (equal extension "")
 	    (run-with-timer (* 60 extension) 0 'dedicated-session-timer-up)
 	  (run-with-timer 600 0 'dedicated-session-timer-up t)))))
   )
@@ -439,6 +439,12 @@ descriptions
   ;; start a bar
   (dedicated-session-bar-rest-toggle)
   )
+
+(defun dedicated-session-set-bar-effort (effort)
+  (interactive "sbar-effort[in minutes]: ")
+  (setq dedicated-session-bar-effort (string-to-number effort
+						       )))
+
 (defun dedicated-session-bar-rest-toggle (&optional done?)
   "toggle between bar and rest in doing stage"
   (interactive)
@@ -458,10 +464,10 @@ descriptions
 	     ;; encountering bar number 1 here means it's toggling from
 	     ;; bar 1 and rest 1
 	     (equal dedicated-session-bar/rest-number 1))
-    (setq dedicated-session-bar-effort (dedicated-session-journal-get-property :duration)))
+    (setq dedicated-session-bar-effort (org-duration-to-minutes(dedicated-session-journal-get-property :duration))))
   ;;prompt to set bar length if it's not set. this should only execute when entering bar 1
-  (unless dedicated-session-bar-effort
-    (setq dedicated-session-bar-effort
+  (when (equal dedicated-session-bar-effort 0)
+    (setq dedicated-session-bar-effort 
 	  (org-duration-to-minutes
 	   (read-string "Expected length of session[default 0(same as length of first bar)]:"))))
 
@@ -481,7 +487,8 @@ descriptions
        ;;log start-time. if done? then not log start-time
        (dedicated-session-journal-set-property :start-time)
        (message (concat (dedicated-session-in-string) " " (number-to-string (ceiling (/ (+ 1 dedicated-session-bar/rest-number) 2))) " on " dedicated-session-topic " has started!!!"))
-       (when (equal dedicated-session-in 'doing/bar)
+       (when (and (> dedicated-session-bar-effort 0)
+	      	  (equal dedicated-session-in 'doing/bar))
 	 (run-with-timer (* 60 dedicated-session-bar-effort)
 			 0
 			 'dedicated-session-doing-bar-timer-up))
@@ -520,7 +527,9 @@ descriptions
   (setq dedicated-session-current-start-time nil)
   (setq dedicated-session-topic nil)
   (setq dedicated-session-bar/rest-number 0)
-  (setq dedicated-session-log-number-this-session 0))
+  (setq dedicated-session-log-number-this-session 0)
+  (setq dedicated-session-bar-effort 0)
+  (setq dedicated-session-effort 0))
 
 ;;log function
 (define-minor-mode dedicated-session-log-mode
