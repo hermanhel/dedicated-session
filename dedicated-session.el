@@ -57,11 +57,16 @@
   "the string, like \"tt\", associated with your org-capture template for the log template
 an example of it could be")
 
+(defvar dedicated-session-effort 0
+  "the expected length in time of this session. It's expecting a input like \"3:00\" parsed into minutes.")
+
+(defvar dedicated-session-bar-effort 0
+  "the length in time of a bar. in minutes")
 
 
 ;; test environment
 (setq dedicated-session-journal "~/playground/projects/dedicated-session/dedicated-session-journal.org")
-(setq dedicated-session-source "./dedicated-session-source.org")
+(setq dedicated-session-source "~/playground/projects/dedicated-session/dedicated-session-source.org")
 ;; end of test environment
 
 ;; some org-edit-util functions
@@ -181,6 +186,7 @@ usage:
 
 ;;set properties in the journal
 (defun dedicated-session-journal-set-property (property)
+  "property should be in format :end-time, :start-time, which is specified in dedicated-session-journal-plist to avoid illegal input"
   ;;use plist to avoid illegel input
   (let ((property-string (plist-get dedicated-session-journal-plist property)))
     (with-temp-buffer
@@ -205,6 +211,18 @@ usage:
       (write-region (point-min) (point-max) dedicated-session-journal)
        )))
 
+;;get properties in the journal
+(defun dedicated-session-journal-get-property (property)
+  "get property of current entry. the name might need modification"
+  (let ((property-string (plist-get dedicated-session-journal-plist property)))
+    (with-temp-buffer
+      (insert-file-contents dedicated-session-journal)
+      (org-mode)
+      (dedicated-session-find-current-entry-in-journal)
+      (org-element-property (intern (upcase (concat ":" property-string))) (org-element-at-point))
+      )
+    )
+  )
 
 
 ;;minor mode dedicated-session-dumping
@@ -287,14 +305,88 @@ usage:
   "start dumping stage"
   ;;; set topic
   (setq dedicated-session-topic
-	 (read-string "topic:")	
+	 (read-string "topic: ")	
 	 )
+  (setq dedicated-session-effort
+	(org-duration-to-minutes (read-string "Expected session durtion[0:00]: ")))
+  (run-with-timer (* 60 (- dedicated-session-effort 10)) 0 'dedicated-session-timer-up)
   (setq dedicated-session-in 'dumping)
   (setq dedicated-session-current-start-time (org-current-time))
   ;;; open journal file
   (dedicated-session-journal-set-property :start-time)
   (dedicated-session-rest-prompt dedicated-session-default-dumping-prompt-fmt)
   )
+
+(defun dedicated-session-timer-up (&optional final?)
+  "behaviour of the dedicated session. The Default now is: 1. when set a timer, set it with menus 10 minutes time. when that timer is up, call `dedicated-session-timer-up' 2. prompt for extend. if nil, start a 10 minute timer with final? t to releasing, if non-nil, set a timer of extended time
+
+the final time (10m) is currently hard coded."
+  (cond
+   (final? (run-with-timer 600 0 'dedicated-session-releasing))
+   (t (let ((extension (read-string "10m remaining. Extend session?[input extend time(m)]: ")))
+	(if extension
+	    (run-with-timer (* 60 extension) 0 'dedicated-session-timer-up)
+	  (run-with-timer 600 0 'dedicated-session-timer-up t)))))
+  )
+
+;;;time information funcions
+;;interactive call for statistics
+(defun dedicated-session-time-statistics ()
+  "display in minibuffer current session's time information, including effort, elapsed and remaining time of both this current bar/stage and the session "
+  (interactive)
+  (let ((session-info (format "session started at %s with effort %s, progress %s, elapsed time %s, remaining time %s"
+			      (format-time-string
+			       "%H:%M"
+			       dedicated-session-current-start-time)
+			      (format-seconds "%02h:%02m" (* 60 dedicated-session-effort))
+			      			      (format "%d%%" (/ (time-to-seconds (dedicated-session-get-elapsed-time "session")) 60 dedicated-session-effort 0.01))
+			      (format-seconds "%02h:%02m"
+					      (dedicated-session-get-elapsed-time "session"))
+			      (format-seconds "%02h:%02m"
+					      ;; remaining time return in minuites
+					      (* (dedicated-session-get-remaining-time "session") 60))
+			      
+			      ))
+	(bar-info  (format "    bar started at %s with effort %s, progress %s, elapsed time %s, remaining time %s"
+			      (format-time-string
+			       "%H:%M"
+			       (org-time-string-to-time (dedicated-session-get-property :start-time)))
+			      (format-seconds "%02h:%02m" (* 60 dedicated-session-bar-effort))
+			      (format "%d%%" (/ (time-to-seconds (dedicated-session-get-elapsed-time "bar")) 60 dedicated-session-bar-effort 0.01))
+			      (format-seconds "%02h:%02m"
+					      (dedicated-session-get-elapsed-time "bar"))
+			      (format-seconds "%02h:%02m"
+					      ;; remaining time return in minuites
+					      (* (dedicated-session-get-remaining-time "bar") 60))
+			      
+			      ))
+	)
+    (message "%s
+%s" session-info bar-info)
+    ))
+;;getting elapsed time
+(defun dedicated-session-get-elapsed-time (kind)
+  "when kind is \"session\", get the elapsed time since session started. if \"bar \" get that since bar started return in time object"
+  (if (equal kind "session")
+      (time-subtract (org-current-time)
+		     dedicated-session-current-start-time)
+    (with-temp-buffer
+      (insert-file-contents dedicated-session-journal)
+      (org-mode)
+      (dedicated-session-find-current-entry-in-journal)
+      (time-subtract (org-current-time)
+		     (org-time-string-to-time
+		      (org-element-property :START-TIME (org-element-at-point) )))
+      )))
+;;getting remaining time
+(defun dedicated-session-get-remaining-time (kind)
+  "remaining time = effort-elpased time. return in minutes"
+  (if (equal kind "session")
+      (- dedicated-session-effort (floor (/ (time-to-seconds (dedicated-session-get-elapsed-time "session")) 60)))
+    (- dedicated-session-bar-effort (floor (/ (time-to-seconds  (dedicated-session-get-elapsed-time "bar")) 60)))
+      )
+  )
+
 
 (defun dedicated-session-in-string ()
   "give string based on the stage now is in"
@@ -352,11 +444,28 @@ descriptions
   (interactive)
   (unless (member dedicated-session-in '(doing doing/bar doing/rest))
     (user-error "you must toggle between bar and rest in doing stage"))
+
   ;;log end-time
   (if (equal dedicated-session-in 'doing)
       nil
     (progn (dedicated-session-journal-set-property :end-time)
 	   (dedicated-session-journal-set-property :duration)))
+  
+  ;;; setting timer
+  ;;automatically set bar length when the first bar is over
+  (when (and (equal dedicated-session-bar-effort 0)
+	     ;; the first bar starting set the bar number to 1, so
+	     ;; encountering bar number 1 here means it's toggling from
+	     ;; bar 1 and rest 1
+	     (equal dedicated-session-bar/rest-number 1))
+    (setq dedicated-session-bar-effort (dedicated-session-journal-get-property :duration)))
+  ;;prompt to set bar length if it's not set. this should only execute when entering bar 1
+  (unless dedicated-session-bar-effort
+    (setq dedicated-session-bar-effort
+	  (org-duration-to-minutes
+	   (read-string "Expected length of session[default 0(same as length of first bar)]:"))))
+
+  
   ;;toggle state
   (setq dedicated-session-in (cond
 			      (done? 'releasing)
@@ -372,12 +481,32 @@ descriptions
        ;;log start-time. if done? then not log start-time
        (dedicated-session-journal-set-property :start-time)
        (message (concat (dedicated-session-in-string) " " (number-to-string (ceiling (/ (+ 1 dedicated-session-bar/rest-number) 2))) " on " dedicated-session-topic " has started!!!"))
+       (when (equal dedicated-session-in 'doing/bar)
+	 (run-with-timer (* 60 dedicated-session-bar-effort)
+			 0
+			 'dedicated-session-doing-bar-timer-up))
        (when (equal dedicated-session-in 'doing/rest)
 	 (dedicated-session-doing-rest-prompt)))
     (dedicated-session-journal-set-property :start-time)
-    (message "releasing " dedicated-session-topic))  
-  )
+    (message "releasing " dedicated-session-topic)))  
 
+;;interactively set effort
+(defun dedicated-session-bar-effort-set ()
+  (interactive)
+  (setq dedicated-session-bar-effort (org-duration-to-minutes (read-string (format "bar-effort[current %s]: " dedicated-session-bar-effort)))))
+
+(defun dedicated-session-doing-bar-timer-up (&optional action)
+  "the function that is called when the bar timer is up. If specified, use action function"
+  (cond
+   ;;if action is non-nil, do action
+   (action action)
+   ;;if soft timer, do action in soft-acitons
+   ;; slot for the cond
+   ;;if hard timer, do action in hardtimer
+   ;; slot for the cond
+   ;;if action is nil, toggle state 
+   (t (dedicated-session-bar-rest-toggle))
+   ))
 
 (defun dedicated-session-doing-rest-prompt ()
   "display rest prompt similar to dumping"

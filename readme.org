@@ -33,6 +33,7 @@ or, you can clone this repository into your site-lisp directory, and add followi
   (require 'dedicated-session)
   (global-set-key (kbd "C-c d s") 'dedicated-session)
   (global-set-key (kbd "C-c d t") 'dedicated-session-see-topic)
+  (global-set-key (kbd "C-c d i") 'dedicated-session-time-statistics)
   (global-set-key (kbd "C-c d g") 'dedicated-session-see-stage-in)
   (global-set-key (kbd "C-c d C-c") 'dedicated-session-bar-rest-toggle)
   (global-set-key (kbd "C-c d q") 'dedicated-session-releasing)
@@ -127,6 +128,8 @@ in short:
 2. press ~C-c C-c~ to proceed from a dumping buffer. Your first bar would start
 3. call ~dedicated-session-doing-bar-rest-toggle~ to toggle between bar and rest
    1. if you're toggling into rest, you'll enter rest buffer. ~C-c C-c~ to proceed to next bar. Or, you can kill buffer mannualy and toggle manualy. I may add an alias for toggle, as it's often used only for entering rest.
+   2. automatically toggle: you'll be prompted to input a bar length.
+      if you input nothing, bar 1's length would be used. After you start a bar for ~bar-length~ minutes, it will automatically call toggle function.
 4. call ~dedicated-session-releasing~ if you want to quit.
    you'll enter summary log buffer. finish summary. ~C-c C-c~. you'll enter releasing buffer. release. ~C-c C-c~ to quit.
 5. all stages are logged into a .org file you specified in ~dedicated-session-journal~

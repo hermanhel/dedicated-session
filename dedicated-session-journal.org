@@ -1,236 +1,287 @@
 * 2022
 ** May
-*** 04
-**** 17:33 Session:  new age
+*** 05
+**** 10:29 Session: adding timer into dedicated-session
 ***** dumping
 :PROPERTIES:
-:start-time: <2022-05-04 17:33>
-:end-time: <2022-05-04 17:35>
-:duration: 00:02
+:start-time: <2022-05-05 10:29>
+:end-time: <2022-05-05 10:30>
+:duration: 00:01
 :END:
-****** log #1
-:PROPERTIES:
-:log-time: [2022-05-04 17:34]
-:END:
-[[file:dedicated-session.el::)]]
-I'm so handsome
 ***** doing
 ****** bar 1
 :PROPERTIES:
-:start-time: <2022-05-04 17:35>
-:end-time: <2022-05-04 17:35>
+:start-time: <2022-05-05 10:30>
+:end-time: <2022-05-05 10:30>
 :duration: 00:00
 :END:
-******* log #2
-:PROPERTIES:
-:log-time: [2022-05-04 17:35]
-:END:
-[[file:dedicated-session.el::)]]
-and so brave
-****** rest 1
-:PROPERTIES:
-:start-time: <2022-05-04 17:35>
-:end-time: <2022-05-04 17:41>
-:duration: 00:06
-:END:
-******* log #3
-:PROPERTIES:
-:log-time: [2022-05-04 17:40]
-:END:
-no link available in the temporary buffers.
-****** bar 2
-:PROPERTIES:
-:start-time: <2022-05-04 17:41>
-:end-time: <2022-05-04 17:42>
-:duration: 00:01
-:END:
-******* log #4
-:PROPERTIES:
-:log-time: [2022-05-04 17:41]
-:END:
-this another log!
-****** rest 2
-:PROPERTIES:
-:start-time: <2022-05-04 17:42>
-:end-time: <2022-05-04 17:42>
-:duration: 00:00
-:END:
-****** bar 3
-:PROPERTIES:
-:start-time: <2022-05-04 17:42>
-:end-time: <2022-05-04 17:47>
-:duration: 00:05
-:END:
-******* log #5
-:PROPERTIES:
-:log-time: [2022-05-04 17:42]
-:END:
-and another
-****** rest 3
-:PROPERTIES:
-:start-time: <2022-05-04 17:47>
-:end-time: <2022-05-04 17:47>
-:duration: 00:00
-:END:
-******* log #6
-:PROPERTIES:
-:log-time: [2022-05-04 17:47]
-:END:
-so no link here
-****** bar 4
-:PROPERTIES:
-:start-time: <2022-05-04 17:47>
-:end-time: <2022-05-04 17:47>
-:duration: 00:00
-:END:
-******* log #7
-:PROPERTIES:
-:log-time: [2022-05-04 17:47]
-:END:
-[[file:dedicated-session.el::)]]
-but with link here, and no errors and interupts
 ***** releasing
 :PROPERTIES:
-:end-time: <2022-05-04 17:48>
+:start-time: <2022-05-05 10:30>
+:end-time: <2022-05-05 10:20>
+:duration: 00:00
 :END:
 ****** summary
 :PROPERTIES:
-:log-time: [2022-05-04 17:47]
+:log-time: [2022-05-05 10:30]
 :END:
-[[file:dedicated-session.el::)]]
-and that is a valid package
-****** log #9
-:PROPERTIES:
-:log-time: [2022-05-04 17:48]
-:END:
-and now I'm doing it!
-just
-**** 17:55 Session: saxphone
+[[file:2022-05-05.org][file:~/Notes/RoamNotes/daily/2022-05-05.org]]
+去吃飯去了ww
+**** 10:57 Session: adding timer into dedicated session
 ***** dumping
 :PROPERTIES:
-:start-time: <2022-05-04 17:55>
-:end-time: <2022-05-04 17:55>
-:duration: 00:00
+:start-time: <2022-05-05 10:57>
+:end-time: <2022-05-05 10:58>
+:duration: 00:01
 :END:
 ***** doing
-****** bar 4
+****** bar 1
 :PROPERTIES:
-:start-time: <2022-05-04 17:55>
-:end-time: <2022-05-04 17:55>
+:start-time: <2022-05-05 10:58>
+:end-time: <2022-05-05 11:24>
+:duration: 00:26
+:END:
+******* log #1
+:PROPERTIES:
+:log-time: [2022-05-05 11:23]
+:END:
+[[file:2022-05-05.org::*find a way to wrtie background timer][find a way to wrtie background timer]]
+I wrote and formulated all behaviours I'm going to write
+****** rest 1
+:PROPERTIES:
+:start-time: <2022-05-05 11:24>
+:end-time: <2022-05-05 11:53>
+:duration: 00:29
+:END:
+****** bar 2
+:PROPERTIES:
+:start-time: <2022-05-05 11:53>
+:end-time: <2022-05-05 13:00>
+:duration: 01:07
+:END:
+****** rest 2
+:PROPERTIES:
+:start-time: <2022-05-05 13:00>
+:end-time: <2022-05-05 13:54>
+:duration: 00:54
+:END:
+****** bar 3
+:PROPERTIES:
+:start-time: <2022-05-05 13:54>
+:end-time: <2022-05-05 14:08>
+:duration: 00:14
+:END:
+****** rest 3
+:PROPERTIES:
+:start-time: <2022-05-05 14:08>
+:end-time: <2022-05-05 14:08>
 :duration: 00:00
 :END:
-****** rest 5
+****** bar 4
 :PROPERTIES:
-:start-time: <2022-05-04 17:55>
-:end-time: <2022-05-04 17:55>
+:start-time: <2022-05-05 14:08>
+:end-time: <2022-05-05 14:10>
+:duration: 00:02
+:END:
+****** rest 4
+:PROPERTIES:
+:start-time: <2022-05-05 14:10>
+:end-time: <2022-05-05 14:10>
 :duration: 00:00
 :END:
 ****** bar 5
 :PROPERTIES:
-:start-time: <2022-05-04 17:55>
-:end-time: <2022-05-04 17:56>
+:start-time: <2022-05-05 14:10>
+:end-time: <2022-05-05 14:10>
+:duration: 00:00
+:END:
+****** rest 5
+:PROPERTIES:
+:start-time: <2022-05-05 14:10>
+:end-time: <2022-05-05 14:10>
+:duration: 00:00
+:END:
+****** bar 6
+:PROPERTIES:
+:start-time: <2022-05-05 14:10>
+:end-time: <2022-05-05 14:10>
+:duration: 00:00
+:END:
+****** rest 6
+:PROPERTIES:
+:start-time: <2022-05-05 14:10>
+:end-time: <2022-05-05 14:10>
+:duration: 00:00
+:END:
+****** bar 7
+:PROPERTIES:
+:start-time: <2022-05-05 14:10>
+:end-time: <2022-05-05 14:11>
 :duration: 00:01
 :END:
-***** releasing
+****** rest 7
 :PROPERTIES:
-:start-time: <2022-05-04 17:56>
-:end-time: <2022-05-04 17:56>
+:start-time: <2022-05-05 14:11>
+:end-time: <2022-05-05 14:11>
 :duration: 00:00
 :END:
-****** summary
+****** bar 8
 :PROPERTIES:
-:log-time: [2022-05-04 17:56]
-:END:
-[[file:dedicated-session.el::)]]
-saxphone good
-**** 18:10 Session: jazz piano
-***** dumping
-:PROPERTIES:
-:start-time: <2022-05-04 18:10>
-:end-time: <2022-05-04 18:10>
+:start-time: <2022-05-05 14:11>
+:end-time: <2022-05-05 14:11>
 :duration: 00:00
 :END:
-***** doing
-****** bar 1
+****** rest 8
 :PROPERTIES:
-:start-time: <2022-05-04 18:10>
-:end-time: <2022-05-04 18:10>
+:start-time: <2022-05-05 14:11>
+:end-time: <2022-05-05 14:11>
 :duration: 00:00
 :END:
-****** rest 1
+****** bar 9
 :PROPERTIES:
-:start-time: <2022-05-04 18:10>
-:end-time: <2022-05-04 18:11>
+:start-time: <2022-05-05 14:11>
+:end-time: <2022-05-05 14:11>
+:duration: 00:00
+:END:
+****** rest 9
+:PROPERTIES:
+:start-time: <2022-05-05 14:11>
+:end-time: <2022-05-05 14:11>
+:duration: 00:00
+:END:
+****** bar 10
+:PROPERTIES:
+:start-time: <2022-05-05 14:11>
+:end-time: <2022-05-05 14:11>
+:duration: 00:00
+:END:
+****** rest 10
+:PROPERTIES:
+:start-time: <2022-05-05 14:11>
+:end-time: <2022-05-05 14:12>
 :duration: 00:01
 :END:
-****** bar 2
+****** bar 11
 :PROPERTIES:
-:start-time: <2022-05-04 18:11>
-:end-time: <2022-05-04 18:11>
+:start-time: <2022-05-05 14:12>
+:end-time: <2022-05-05 14:12>
 :duration: 00:00
 :END:
-***** releasing
+****** rest 11
 :PROPERTIES:
-:start-time: <2022-05-04 18:11>
-:end-time: <2022-05-04 18:11>
+:start-time: <2022-05-05 14:12>
+:end-time: <2022-05-05 14:12>
 :duration: 00:00
 :END:
-****** summary
+****** bar 12
 :PROPERTIES:
-:log-time: [2022-05-04 18:11]
+:start-time: <2022-05-05 14:13>
+:end-time: <2022-05-05 14:13>
+:duration: 00:00
 :END:
-[[file:readme.org::*screenshots][screenshots]]
-**** 18:46 Session: herman's wit
-***** dumping
+****** rest 12
 :PROPERTIES:
-:start-time: <2022-05-04 18:46>
-:end-time: <2022-05-04 18:47>
+:start-time: <2022-05-05 14:13>
+:end-time: <2022-05-05 14:14>
 :duration: 00:01
 :END:
-***** doing
-****** bar 1
+****** bar 13
 :PROPERTIES:
-:start-time: <2022-05-04 18:47>
-:END:
-**** 18:56 Session: herman's wit
-***** dumping
-:PROPERTIES:
-:start-time: <2022-05-04 18:56>
-:end-time: <2022-05-04 18:56>
+:start-time: <2022-05-05 14:14>
+:end-time: <2022-05-05 14:14>
 :duration: 00:00
 :END:
-***** doing
-****** bar 1
+****** rest 13
 :PROPERTIES:
-:start-time: <2022-05-04 18:56>
-:end-time: <2022-05-04 18:57>
-:duration: 00:01
-:END:
-****** rest 2
-:PROPERTIES:
-:start-time: <2022-05-04 18:57>
-:end-time: <2022-05-04 18:57>
+:start-time: <2022-05-05 14:14>
+:end-time: <2022-05-05 14:14>
 :duration: 00:00
 :END:
-****** bar 2
+****** bar 14
 :PROPERTIES:
-:start-time: <2022-05-04 18:57>
-:end-time: <2022-05-04 18:58>
+:start-time: <2022-05-05 14:14>
+:end-time: <2022-05-05 14:15>
 :duration: 00:01
 :END:
-***** releasing
+****** rest 14
 :PROPERTIES:
-:start-time: <2022-05-04 18:58>
+:start-time: <2022-05-05 14:15>
+:end-time: <2022-05-05 14:17>
+:duration: 00:02
 :END:
-******* log #1
+****** bar 15
 :PROPERTIES:
-:log-time: [2022-05-04 18:49]
+:start-time: <2022-05-05 14:17>
+:end-time: <2022-05-05 14:18>
+:duration: 00:01
 :END:
-[[file:readme.org::*init.el][init.el]]
-****** summary
+****** rest 15
 :PROPERTIES:
-:log-time: [2022-05-04 18:58]
+:start-time: <2022-05-05 14:18>
+:end-time: <2022-05-05 14:18>
+:duration: 00:00
 :END:
-[[file:readme.org::*init.el][init.el]]
-
-
+****** bar 16
+:PROPERTIES:
+:start-time: <2022-05-05 14:18>
+:end-time: <2022-05-05 14:18>
+:duration: 00:00
+:END:
+****** rest 16
+:PROPERTIES:
+:start-time: <2022-05-05 14:18>
+:end-time: <2022-05-05 14:22>
+:duration: 00:04
+:END:
+****** bar 17
+:PROPERTIES:
+:start-time: <2022-05-05 14:22>
+:end-time: <2022-05-05 14:47>
+:duration: 00:25
+:END:
+****** rest 17
+:PROPERTIES:
+:start-time: <2022-05-05 14:47>
+:end-time: <2022-05-05 15:48>
+:duration: 01:01
+:END:
+****** bar 18
+:PROPERTIES:
+:start-time: <2022-05-05 15:48>
+:end-time: <2022-05-05 16:13>
+:duration: 00:25
+:END:
+****** rest 18
+:PROPERTIES:
+:start-time: <2022-05-05 16:13>
+:end-time: <2022-05-05 16:17>
+:duration: 00:04
+:END:
+****** bar 19
+:PROPERTIES:
+:start-time: <2022-05-05 16:17>
+:end-time: <2022-05-05 16:42>
+:duration: 00:25
+:END:
+****** rest 19
+:PROPERTIES:
+:start-time: <2022-05-05 16:42>
+:end-time: <2022-05-05 16:50>
+:duration: 00:08
+:END:
+****** bar 20
+:PROPERTIES:
+:start-time: <2022-05-05 16:50>
+:end-time: <2022-05-05 17:15>
+:duration: 00:25
+:END:
+****** rest 20
+:PROPERTIES:
+:start-time: <2022-05-05 17:15>
+:end-time: <2022-05-05 17:21>
+:duration: 00:06
+:END:
+****** bar 21
+:PROPERTIES:
+:start-time: <2022-05-05 17:21>
+:END:
